@@ -1,0 +1,149 @@
+﻿@model IEnumerable<EF.Entiti.Menu>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Area/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NameMenu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Level)
+        </th>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.isActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Decriptions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MetaTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MetaDecriptions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ParenID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameMenu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Level)
+        </td>
+      
+        <td>
+            <select id="active" onchange="updateactive(@item.ID)">
+                @if (item.isActive == true)
+                {
+                    <option selected="selected" value="true">True</option>
+                    <option value="false">False</option>
+                }
+                else
+                {
+                    <option value="true">True</option>
+                    <option selected="selected" value="false">False</option>
+                }
+            </select>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Decriptions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MetaTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MetaDecriptions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParenID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            <a onclick="Delete(@item.ID)">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>
+
+<script>
+    function Delete(id) {
+        var url = '/Menu/Delete';
+        fetch(url, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify({id})
+        })
+            .then(function (response) {
+               
+                return response.json()
+            })
+            .then(function (data) {
+                var obj = JSON.parse(JSON.stringify(data))
+                if (obj.mess == "success") {
+                    alert("Delete success")
+                }
+                else {
+                    alert("Fail")
+                }
+            })
+    }
+
+
+   
+    function updateactive(id) {
+        var x = document.getElementById("active").value;
+        var temp = 1;
+        if (x == 'true') {
+            temp = 1
+        }
+        else {
+            temp=0
+        }
+        var url = '/Menu/UpdateMenu/'
+        console.log(x.value)
+        fetch(url, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify({ id: id, active: temp })
+        })
+            .then(response => response.json)
+            .then(function (data) {
+                console.log(data)
+            })
+    }
+  
+
+
+    
+</script>
+

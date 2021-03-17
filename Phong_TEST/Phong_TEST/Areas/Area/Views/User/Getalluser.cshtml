@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Phong_TEST.Areas.Area.Models.UserViewModel>
+@{
+    ViewBag.Title = "Getalluser";
+    Layout = "~/Areas/Area/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Getalluser</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table id="tbluser" class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Role)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PassWord)
+        </th>
+        <th>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Role)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PassWord)
+        </td>
+        <td>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            <a href="#" id="@item.ID" onclick="deleteconfirm(@item.ID)">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>
+<script>
+
+    
+
+    function deleteconfirm(id) {
+        var url = "/User/Deleteuser"
+        fetch(url, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify({ id })
+        }).then(response => response.json())
+            .then(function (data) {
+                var item = document.getElementById(id);
+                var action = item.parentElement;
+                var tr = action.parentElement;
+                tr.style.display = 'none';
+            })
+    }
+    function deleteRow(btn) {
+        var row = btn.parentNode
+        row.parentNode.removeChild(row);
+    }
+</script>

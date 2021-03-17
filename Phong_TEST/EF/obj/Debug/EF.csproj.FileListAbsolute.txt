@@ -1,0 +1,12 @@
+C:\Users\Phong\Desktop\IIT\Phong_TEST\EF\bin\Debug\EF.dll.config
+C:\Users\Phong\Desktop\IIT\Phong_TEST\EF\bin\Debug\EF.dll
+C:\Users\Phong\Desktop\IIT\Phong_TEST\EF\bin\Debug\EF.pdb
+C:\Users\Phong\Desktop\IIT\Phong_TEST\EF\bin\Debug\EntityFramework.dll
+C:\Users\Phong\Desktop\IIT\Phong_TEST\EF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Phong\Desktop\IIT\Phong_TEST\EF\bin\Debug\EntityFramework.xml
+C:\Users\Phong\Desktop\IIT\Phong_TEST\EF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Phong\Desktop\IIT\Phong_TEST\EF\obj\Debug\EF.csprojAssemblyReference.cache
+C:\Users\Phong\Desktop\IIT\Phong_TEST\EF\obj\Debug\EF.csproj.CoreCompileInputs.cache
+C:\Users\Phong\Desktop\IIT\Phong_TEST\EF\obj\Debug\EF.csproj.CopyComplete
+C:\Users\Phong\Desktop\IIT\Phong_TEST\EF\obj\Debug\EF.dll
+C:\Users\Phong\Desktop\IIT\Phong_TEST\EF\obj\Debug\EF.pdb

@@ -1,0 +1,623 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{18D08CAD-9701-416B-948D-DDD6A7A5DF08}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Phong_TEST</RootNamespace>
+    <AssemblyName>Phong_TEST</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CaptchaMvc, Version=2.5.0.0, Culture=neutral, PublicKeyToken=fe46ad421dd3b0e6, processorArchitecture=MSIL">
+      <HintPath>..\packages\CaptchaMvc.Mvc5.1.5.0\lib\net45-full\CaptchaMvc.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Authentication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Authentication.1.0.0-rc1-final\lib\net451\Microsoft.AspNet.Authentication.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Authentication.Cookies, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Authentication.Cookies.1.0.0-rc1-final\lib\net451\Microsoft.AspNet.Authentication.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Cryptography.Internal, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cryptography.Internal.1.0.0-rc1-final\lib\net451\Microsoft.AspNet.Cryptography.Internal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Cryptography.KeyDerivation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cryptography.KeyDerivation.1.0.0-rc1-final\lib\net451\Microsoft.AspNet.Cryptography.KeyDerivation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.DataProtection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.DataProtection.1.0.0-rc1-final\lib\net451\Microsoft.AspNet.DataProtection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.DataProtection.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.DataProtection.Abstractions.1.0.0-rc1-final\lib\net451\Microsoft.AspNet.DataProtection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FileProviders.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.FileProviders.Abstractions.1.0.0-rc1-final\lib\net451\Microsoft.AspNet.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Hosting.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Hosting.Abstractions.1.0.0-rc1-final\lib\net451\Microsoft.AspNet.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Http, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Http.1.0.0-rc1-final\lib\net451\Microsoft.AspNet.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Http.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Http.Abstractions.1.0.0-rc1-final\lib\net451\Microsoft.AspNet.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Http.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Http.Extensions.1.0.0-rc1-final\lib\net451\Microsoft.AspNet.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Http.Features, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Http.Features.1.0.0-rc1-final\lib\net451\Microsoft.AspNet.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity, Version=3.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.3.0.0-rc1-final\lib\net451\Microsoft.AspNet.Identity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.WebUtilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebUtilities.1.0.0-rc1-final\lib\net451\Microsoft.AspNet.WebUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Configuration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.OptionsModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.OptionsModel.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.OptionsModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.PlatformAbstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.PlatformAbstractions.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.PlatformAbstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.WebEncoders, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.WebEncoders.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.WebEncoders.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.WebEncoders.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.WebEncoders.Core.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.WebEncoders.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.1.0.0-rc1-final\lib\net451\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.1.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.1.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AccessClient\css\about.css" />
+    <Content Include="AccessClient\css\bootstrap-datepicker3.css" />
+    <Content Include="AccessClient\css\bootstrap-iso.css" />
+    <Content Include="AccessClient\css\bootstrap.min.css" />
+    <Content Include="AccessClient\css\check-article.css" />
+    <Content Include="AccessClient\css\contact.css" />
+    <Content Include="AccessClient\css\css\all.css" />
+    <Content Include="AccessClient\css\css\all.min.css" />
+    <Content Include="AccessClient\css\css\brands.css" />
+    <Content Include="AccessClient\css\css\brands.min.css" />
+    <Content Include="AccessClient\css\css\fontawesome.css" />
+    <Content Include="AccessClient\css\css\fontawesome.min.css" />
+    <Content Include="AccessClient\css\css\regular.css" />
+    <Content Include="AccessClient\css\css\regular.min.css" />
+    <Content Include="AccessClient\css\css\solid.css" />
+    <Content Include="AccessClient\css\css\solid.min.css" />
+    <Content Include="AccessClient\css\css\svg-with-js.css" />
+    <Content Include="AccessClient\css\css\svg-with-js.min.css" />
+    <Content Include="AccessClient\css\css\v4-shims.css" />
+    <Content Include="AccessClient\css\css\v4-shims.min.css" />
+    <Content Include="AccessClient\css\detail-room.css" />
+    <Content Include="AccessClient\css\detail-team.css" />
+    <Content Include="AccessClient\css\flaticon.css" />
+    <Content Include="AccessClient\css\flaticon.html" />
+    <Content Include="AccessClient\css\Flaticon.svg" />
+    <Content Include="AccessClient\css\gallery-grid.css" />
+    <Content Include="AccessClient\css\jquery-ui.css" />
+    <Content Include="AccessClient\css\our-team.css" />
+    <Content Include="AccessClient\css\room-rate.css" />
+    <Content Include="AccessClient\css\style.css" />
+    <Content Include="AccessClient\css\webfonts\fa-brands-400.svg" />
+    <Content Include="AccessClient\css\webfonts\fa-regular-400.svg" />
+    <Content Include="AccessClient\css\webfonts\fa-solid-900.svg" />
+    <Content Include="AccessClient\img\banner-img1.jpg" />
+    <Content Include="AccessClient\img\banner-img2.jpg" />
+    <Content Include="AccessClient\img\banner-img3.jpg" />
+    <Content Include="AccessClient\img\blog-img1.jpg" />
+    <Content Include="AccessClient\img\booking-big-image.jpg" />
+    <Content Include="AccessClient\img\dark-wall.jpg" />
+    <Content Include="AccessClient\img\dining1.jpg" />
+    <Content Include="AccessClient\img\dining2.jpg" />
+    <Content Include="AccessClient\img\dining3.png" />
+    <Content Include="AccessClient\img\favicon.ico" />
+    <Content Include="AccessClient\img\favicon.png" />
+    <Content Include="AccessClient\img\greeting-img1.jpg" />
+    <Content Include="AccessClient\img\greeting-img2.jpg" />
+    <Content Include="AccessClient\img\greeting-img3.jpg" />
+    <Content Include="AccessClient\img\icon-title.png" />
+    <Content Include="AccessClient\img\introduce2.jpg" />
+    <Content Include="AccessClient\img\light-wall.jpg" />
+    <Content Include="AccessClient\img\logo.jpg" />
+    <Content Include="AccessClient\img\manage-member.jpg" />
+    <Content Include="AccessClient\img\room1.jpg" />
+    <Content Include="AccessClient\img\room2.jpg" />
+    <Content Include="AccessClient\img\room3.jpg" />
+    <Content Include="AccessClient\img\room4.jpg" />
+    <Content Include="AccessClient\img\room5.jpg" />
+    <Content Include="AccessClient\img\room6.jpg" />
+    <Content Include="AccessClient\img\scene1.jpg" />
+    <Content Include="AccessClient\img\scene10.jpg" />
+    <Content Include="AccessClient\img\scene11.jpg" />
+    <Content Include="AccessClient\img\scene12.jpg" />
+    <Content Include="AccessClient\img\scene2.jpg" />
+    <Content Include="AccessClient\img\scene3.jpg" />
+    <Content Include="AccessClient\img\scene4.jpg" />
+    <Content Include="AccessClient\img\scene5.jpg" />
+    <Content Include="AccessClient\img\scene6.jpg" />
+    <Content Include="AccessClient\img\scene7.jpg" />
+    <Content Include="AccessClient\img\scene8.jpg" />
+    <Content Include="AccessClient\img\scene9.jpg" />
+    <Content Include="AccessClient\img\testBG.jpg" />
+    <Content Include="AccessClient\img\tourist1.jpg" />
+    <Content Include="AccessClient\img\tourist2.jpg" />
+    <Content Include="AccessClient\img\tourist3.jpg" />
+    <Content Include="AccessClient\img\tourist4.jpg" />
+    <Content Include="AccessClient\img\tourist5.jpg" />
+    <Content Include="AccessClient\img\tourist6.jpg" />
+    <Content Include="AccessClient\img\tourist7.jpg" />
+    <Content Include="AccessClient\img\tourist8.jpg" />
+    <Content Include="AccessClient\js\bootstrap-datepicker.min.js" />
+    <Content Include="AccessClient\js\bootstrap.min.js" />
+    <Content Include="AccessClient\js\check-article.js" />
+    <Content Include="AccessClient\js\detail-article.js" />
+    <Content Include="AccessClient\js\detail-room.js" />
+    <Content Include="AccessClient\js\detail-team.js" />
+    <Content Include="AccessClient\js\gallery-grid.js" />
+    <Content Include="AccessClient\js\jquery-3.4.1.min.js" />
+    <Content Include="AccessClient\js\jquery-ui.js" />
+    <Content Include="AccessClient\js\jquery.counterup.js" />
+    <Content Include="AccessClient\js\jquery.counterup.min.js" />
+    <Content Include="AccessClient\js\jquery.waypoints.js" />
+    <Content Include="AccessClient\js\jquery.waypoints.min.js" />
+    <Content Include="AccessClient\js\our-team.js" />
+    <Content Include="AccessClient\js\picker.date.js" />
+    <Content Include="AccessClient\js\popper.min.js" />
+    <Content Include="AccessClient\js\shared.js" />
+    <Content Include="AccessClient\lakeinn\about.html" />
+    <Content Include="AccessClient\lakeinn\check-article.html" />
+    <Content Include="AccessClient\lakeinn\contact.html" />
+    <Content Include="AccessClient\lakeinn\css\about.css" />
+    <Content Include="AccessClient\lakeinn\css\bootstrap-datepicker3.css" />
+    <Content Include="AccessClient\lakeinn\css\bootstrap-iso.css" />
+    <Content Include="AccessClient\lakeinn\css\bootstrap.min.css" />
+    <Content Include="AccessClient\lakeinn\css\check-article.css" />
+    <Content Include="AccessClient\lakeinn\css\contact.css" />
+    <Content Include="AccessClient\lakeinn\css\css\all.css" />
+    <Content Include="AccessClient\lakeinn\css\css\all.min.css" />
+    <Content Include="AccessClient\lakeinn\css\css\brands.css" />
+    <Content Include="AccessClient\lakeinn\css\css\brands.min.css" />
+    <Content Include="AccessClient\lakeinn\css\css\fontawesome.css" />
+    <Content Include="AccessClient\lakeinn\css\css\fontawesome.min.css" />
+    <Content Include="AccessClient\lakeinn\css\css\regular.css" />
+    <Content Include="AccessClient\lakeinn\css\css\regular.min.css" />
+    <Content Include="AccessClient\lakeinn\css\css\solid.css" />
+    <Content Include="AccessClient\lakeinn\css\css\solid.min.css" />
+    <Content Include="AccessClient\lakeinn\css\css\svg-with-js.css" />
+    <Content Include="AccessClient\lakeinn\css\css\svg-with-js.min.css" />
+    <Content Include="AccessClient\lakeinn\css\css\v4-shims.css" />
+    <Content Include="AccessClient\lakeinn\css\css\v4-shims.min.css" />
+    <Content Include="AccessClient\lakeinn\css\detail-room.css" />
+    <Content Include="AccessClient\lakeinn\css\detail-team.css" />
+    <Content Include="AccessClient\lakeinn\css\flaticon.css" />
+    <Content Include="AccessClient\lakeinn\css\flaticon.html" />
+    <Content Include="AccessClient\lakeinn\css\Flaticon.svg" />
+    <Content Include="AccessClient\lakeinn\css\gallery-grid.css" />
+    <Content Include="AccessClient\lakeinn\css\jquery-ui.css" />
+    <Content Include="AccessClient\lakeinn\css\our-team.css" />
+    <Content Include="AccessClient\lakeinn\css\room-rate.css" />
+    <Content Include="AccessClient\lakeinn\css\shared.css" />
+    <Content Include="AccessClient\lakeinn\css\webfonts\fa-brands-400.svg" />
+    <Content Include="AccessClient\lakeinn\css\webfonts\fa-regular-400.svg" />
+    <Content Include="AccessClient\lakeinn\css\webfonts\fa-solid-900.svg" />
+    <Content Include="AccessClient\lakeinn\detail-article.html" />
+    <Content Include="AccessClient\lakeinn\detail-room.html" />
+    <Content Include="AccessClient\lakeinn\detail-team.html" />
+    <Content Include="AccessClient\lakeinn\gallery-grid.html" />
+    <Content Include="AccessClient\lakeinn\img\banner-img1.jpg" />
+    <Content Include="AccessClient\lakeinn\img\banner-img2.jpg" />
+    <Content Include="AccessClient\lakeinn\img\banner-img3.jpg" />
+    <Content Include="AccessClient\lakeinn\img\blog-img1.jpg" />
+    <Content Include="AccessClient\lakeinn\img\booking-big-image.jpg" />
+    <Content Include="AccessClient\lakeinn\img\dark-wall.jpg" />
+    <Content Include="AccessClient\lakeinn\img\dining1.jpg" />
+    <Content Include="AccessClient\lakeinn\img\dining2.jpg" />
+    <Content Include="AccessClient\lakeinn\img\dining3.png" />
+    <Content Include="AccessClient\lakeinn\img\favicon.ico" />
+    <Content Include="AccessClient\lakeinn\img\favicon.png" />
+    <Content Include="AccessClient\lakeinn\img\greeting-img1.jpg" />
+    <Content Include="AccessClient\lakeinn\img\greeting-img2.jpg" />
+    <Content Include="AccessClient\lakeinn\img\greeting-img3.jpg" />
+    <Content Include="AccessClient\lakeinn\img\icon-title.png" />
+    <Content Include="AccessClient\lakeinn\img\introduce2.jpg" />
+    <Content Include="AccessClient\lakeinn\img\light-wall.jpg" />
+    <Content Include="AccessClient\lakeinn\img\logo.jpg" />
+    <Content Include="AccessClient\lakeinn\img\manage-member.jpg" />
+    <Content Include="AccessClient\lakeinn\img\room1.jpg" />
+    <Content Include="AccessClient\lakeinn\img\room2.jpg" />
+    <Content Include="AccessClient\lakeinn\img\room3.jpg" />
+    <Content Include="AccessClient\lakeinn\img\room4.jpg" />
+    <Content Include="AccessClient\lakeinn\img\room5.jpg" />
+    <Content Include="AccessClient\lakeinn\img\room6.jpg" />
+    <Content Include="AccessClient\lakeinn\img\scene1.jpg" />
+    <Content Include="AccessClient\lakeinn\img\scene10.jpg" />
+    <Content Include="AccessClient\lakeinn\img\scene11.jpg" />
+    <Content Include="AccessClient\lakeinn\img\scene12.jpg" />
+    <Content Include="AccessClient\lakeinn\img\scene2.jpg" />
+    <Content Include="AccessClient\lakeinn\img\scene3.jpg" />
+    <Content Include="AccessClient\lakeinn\img\scene4.jpg" />
+    <Content Include="AccessClient\lakeinn\img\scene5.jpg" />
+    <Content Include="AccessClient\lakeinn\img\scene6.jpg" />
+    <Content Include="AccessClient\lakeinn\img\scene7.jpg" />
+    <Content Include="AccessClient\lakeinn\img\scene8.jpg" />
+    <Content Include="AccessClient\lakeinn\img\scene9.jpg" />
+    <Content Include="AccessClient\lakeinn\img\testBG.jpg" />
+    <Content Include="AccessClient\lakeinn\img\tourist1.jpg" />
+    <Content Include="AccessClient\lakeinn\img\tourist2.jpg" />
+    <Content Include="AccessClient\lakeinn\img\tourist3.jpg" />
+    <Content Include="AccessClient\lakeinn\img\tourist4.jpg" />
+    <Content Include="AccessClient\lakeinn\img\tourist5.jpg" />
+    <Content Include="AccessClient\lakeinn\img\tourist6.jpg" />
+    <Content Include="AccessClient\lakeinn\img\tourist7.jpg" />
+    <Content Include="AccessClient\lakeinn\img\tourist8.jpg" />
+    <Content Include="AccessClient\lakeinn\index.html" />
+    <Content Include="AccessClient\lakeinn\js\bootstrap-datepicker.min.js" />
+    <Content Include="AccessClient\lakeinn\js\bootstrap.min.js" />
+    <Content Include="AccessClient\lakeinn\js\check-article.js" />
+    <Content Include="AccessClient\lakeinn\js\detail-article.js" />
+    <Content Include="AccessClient\lakeinn\js\detail-room.js" />
+    <Content Include="AccessClient\lakeinn\js\detail-team.js" />
+    <Content Include="AccessClient\lakeinn\js\gallery-grid.js" />
+    <Content Include="AccessClient\lakeinn\js\jquery-3.4.1.min.js" />
+    <Content Include="AccessClient\lakeinn\js\jquery-ui.js" />
+    <Content Include="AccessClient\lakeinn\js\jquery.counterup.js" />
+    <Content Include="AccessClient\lakeinn\js\jquery.counterup.min.js" />
+    <Content Include="AccessClient\lakeinn\js\jquery.waypoints.js" />
+    <Content Include="AccessClient\lakeinn\js\jquery.waypoints.min.js" />
+    <Content Include="AccessClient\lakeinn\js\our-team.js" />
+    <Content Include="AccessClient\lakeinn\js\picker.date.js" />
+    <Content Include="AccessClient\lakeinn\js\popper.min.js" />
+    <Content Include="AccessClient\lakeinn\js\shared.js" />
+    <Content Include="AccessClient\lakeinn\our-team.html" />
+    <Content Include="AccessClient\lakeinn\room-rate.html" />
+    <Content Include="AccessClient\lakeinn\slick\ajax-loader.gif" />
+    <Content Include="AccessClient\lakeinn\slick\fonts\slick.svg" />
+    <Content Include="AccessClient\lakeinn\slick\slick-theme.css" />
+    <Content Include="AccessClient\lakeinn\slick\slick.css" />
+    <Content Include="AccessClient\lakeinn\slick\slick.js" />
+    <Content Include="AccessClient\lakeinn\slick\slick.min.js" />
+    <Content Include="AccessClient\lakeinn\Z_ancorathemes.txt" />
+    <Content Include="AccessClient\slick\ajax-loader.gif" />
+    <Content Include="AccessClient\slick\fonts\slick.svg" />
+    <Content Include="AccessClient\slick\slick-theme.css" />
+    <Content Include="AccessClient\slick\slick.css" />
+    <Content Include="AccessClient\slick\slick.js" />
+    <Content Include="AccessClient\slick\slick.min.js" />
+    <Content Include="Accsess\assets\demo\chart-area-demo.js" />
+    <Content Include="Accsess\assets\demo\chart-bar-demo.js" />
+    <Content Include="Accsess\assets\demo\chart-pie-demo.js" />
+    <Content Include="Accsess\assets\demo\datatables-demo.js" />
+    <Content Include="Accsess\assets\img\error-404-monochrome.svg" />
+    <Content Include="Accsess\css\styles.css" />
+    <Content Include="Accsess\Image\Logo\1.1.PNG" />
+    <Content Include="Accsess\Image\Logo\mkk.txt" />
+    <Content Include="Accsess\js\scripts.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Area\Views\User\Login.cshtml" />
+    <Content Include="Areas\Area\Views\User\Getalluser.cshtml" />
+    <Content Include="Areas\Area\Views\User\Create.cshtml" />
+    <Content Include="Areas\Area\Views\Company\GetAllCompany.cshtml" />
+    <Content Include="Areas\Area\Views\Company\Create.cshtml" />
+    <Content Include="Areas\Area\Views\Menu\Index.cshtml" />
+    <Content Include="Areas\Area\Views\Menu\Create.cshtml" />
+    <Content Include="AccessClient\css\Flaticon.eot" />
+    <Content Include="AccessClient\css\Flaticon.ttf" />
+    <Content Include="AccessClient\css\Flaticon.woff" />
+    <Content Include="AccessClient\css\Flaticon.woff2" />
+    <Content Include="AccessClient\css\webfonts\fa-brands-400.eot" />
+    <Content Include="AccessClient\css\webfonts\fa-brands-400.ttf" />
+    <Content Include="AccessClient\css\webfonts\fa-brands-400.woff" />
+    <Content Include="AccessClient\css\webfonts\fa-brands-400.woff2" />
+    <Content Include="AccessClient\css\webfonts\fa-regular-400.eot" />
+    <Content Include="AccessClient\css\webfonts\fa-regular-400.ttf" />
+    <Content Include="AccessClient\css\webfonts\fa-regular-400.woff" />
+    <Content Include="AccessClient\css\webfonts\fa-regular-400.woff2" />
+    <Content Include="AccessClient\css\webfonts\fa-solid-900.eot" />
+    <Content Include="AccessClient\css\webfonts\fa-solid-900.ttf" />
+    <Content Include="AccessClient\css\webfonts\fa-solid-900.woff" />
+    <Content Include="AccessClient\css\webfonts\fa-solid-900.woff2" />
+    <Content Include="AccessClient\css\_flaticon.scss" />
+    <Content Include="AccessClient\img\dark-wall.webp" />
+    <Content Include="AccessClient\img\light-wall.webp" />
+    <Content Include="AccessClient\img\logo.webp" />
+    <Content Include="AccessClient\lakeinn\css\Flaticon.eot" />
+    <Content Include="AccessClient\lakeinn\css\Flaticon.ttf" />
+    <Content Include="AccessClient\lakeinn\css\Flaticon.woff" />
+    <Content Include="AccessClient\lakeinn\css\Flaticon.woff2" />
+    <Content Include="AccessClient\lakeinn\css\webfonts\fa-brands-400.eot" />
+    <Content Include="AccessClient\lakeinn\css\webfonts\fa-brands-400.ttf" />
+    <Content Include="AccessClient\lakeinn\css\webfonts\fa-brands-400.woff" />
+    <Content Include="AccessClient\lakeinn\css\webfonts\fa-brands-400.woff2" />
+    <Content Include="AccessClient\lakeinn\css\webfonts\fa-regular-400.eot" />
+    <Content Include="AccessClient\lakeinn\css\webfonts\fa-regular-400.ttf" />
+    <Content Include="AccessClient\lakeinn\css\webfonts\fa-regular-400.woff" />
+    <Content Include="AccessClient\lakeinn\css\webfonts\fa-regular-400.woff2" />
+    <Content Include="AccessClient\lakeinn\css\webfonts\fa-solid-900.eot" />
+    <Content Include="AccessClient\lakeinn\css\webfonts\fa-solid-900.ttf" />
+    <Content Include="AccessClient\lakeinn\css\webfonts\fa-solid-900.woff" />
+    <Content Include="AccessClient\lakeinn\css\webfonts\fa-solid-900.woff2" />
+    <Content Include="AccessClient\lakeinn\css\_flaticon.scss" />
+    <Content Include="AccessClient\lakeinn\img\dark-wall.webp" />
+    <Content Include="AccessClient\lakeinn\img\light-wall.webp" />
+    <Content Include="AccessClient\lakeinn\img\logo.webp" />
+    <Content Include="AccessClient\lakeinn\slick\config.rb" />
+    <Content Include="AccessClient\lakeinn\slick\fonts\slick.eot" />
+    <Content Include="AccessClient\lakeinn\slick\fonts\slick.ttf" />
+    <Content Include="AccessClient\lakeinn\slick\fonts\slick.woff" />
+    <Content Include="AccessClient\lakeinn\slick\slick-theme.less" />
+    <Content Include="AccessClient\lakeinn\slick\slick-theme.scss" />
+    <Content Include="AccessClient\lakeinn\slick\slick.less" />
+    <Content Include="AccessClient\lakeinn\slick\slick.scss" />
+    <Content Include="AccessClient\slick\config.rb" />
+    <Content Include="AccessClient\slick\fonts\slick.eot" />
+    <Content Include="AccessClient\slick\fonts\slick.ttf" />
+    <Content Include="AccessClient\slick\fonts\slick.woff" />
+    <Content Include="AccessClient\slick\slick-theme.less" />
+    <Content Include="AccessClient\slick\slick-theme.scss" />
+    <Content Include="AccessClient\slick\slick.less" />
+    <Content Include="AccessClient\slick\slick.scss" />
+    <Content Include="Areas\Area\Views\Article\Getall.cshtml" />
+    <Content Include="Areas\Area\Views\Article\Create.cshtml" />
+    <Content Include="Areas\Area\Views\Article\Edit.cshtml" />
+    <Content Include="Areas\Area\Views\FeedBack\GetAll.cshtml" />
+    <Content Include="Areas\Area\Views\Err\err403.cshtml" />
+    <Content Include="Areas\Area\Views\Company\Edit.cshtml" />
+    <Content Include="Areas\Area\Views\Article\Details.cshtml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="Areas\Area\AreaAreaRegistration.cs" />
+    <Compile Include="Areas\Area\Controllers\ArticleController.cs" />
+    <Compile Include="Areas\Area\Controllers\CompanyController.cs" />
+    <Compile Include="Areas\Area\Controllers\FeedBackController.cs" />
+    <Compile Include="Areas\Area\Controllers\MenuController.cs" />
+    <Compile Include="Areas\Area\Controllers\UserController.cs" />
+    <Compile Include="Areas\Area\Models\RoleViewModel.cs" />
+    <Compile Include="Areas\Area\Models\UserViewModel.cs" />
+    <Compile Include="Areas\Area\Service\ArticleService.cs" />
+    <Compile Include="Areas\Area\Service\CompanyService.cs" />
+    <Compile Include="Areas\Area\Service\ContacService.cs" />
+    <Compile Include="Areas\Area\Service\IArticleService.cs" />
+    <Compile Include="Areas\Area\Service\ICompanyService.cs" />
+    <Compile Include="Areas\Area\Service\IContactService.cs" />
+    <Compile Include="Areas\Area\Service\IMenuService.cs" />
+    <Compile Include="Areas\Area\Service\IUserService.cs" />
+    <Compile Include="Areas\Area\Service\MenuService.cs" />
+    <Compile Include="Areas\Area\Service\UserManager.cs" />
+    <Compile Include="Areas\Area\Service\UserService.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Areas\Area\Views\web.config" />
+    <Content Include="Areas\Area\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Area\Views\Shared\_Layout.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shered\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\TopMenu.cshtml" />
+    <Content Include="Views\Home\Getlogo.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Blog\Detail.cshtml" />
+    <Content Include="Views\Blog\Getcategory.cshtml" />
+    <Content Include="Views\Blog\GetRecentArticle.cshtml" />
+    <Content Include="Views\Blog\Bloghome.cshtml" />
+    <Content Include="Views\Home\Getinfo.cshtml" />
+    <Content Include="Views\Blog\Category.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Accsess\Image\Article\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{8CE8CC3B-B410-4FFE-BB59-CBB6ACC62C47}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EF\EF.csproj">
+      <Project>{55f0815d-fbb3-4420-a58a-66580f9b4150}</Project>
+      <Name>EF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49884</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49884/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

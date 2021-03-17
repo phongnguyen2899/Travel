@@ -1,0 +1,6 @@
+C:\Users\Phong\Desktop\IIT\Phong_TEST\Common\bin\Debug\Common.dll
+C:\Users\Phong\Desktop\IIT\Phong_TEST\Common\bin\Debug\Common.pdb
+C:\Users\Phong\Desktop\IIT\Phong_TEST\Common\obj\Debug\Common.csprojAssemblyReference.cache
+C:\Users\Phong\Desktop\IIT\Phong_TEST\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\Phong\Desktop\IIT\Phong_TEST\Common\obj\Debug\Common.dll
+C:\Users\Phong\Desktop\IIT\Phong_TEST\Common\obj\Debug\Common.pdb

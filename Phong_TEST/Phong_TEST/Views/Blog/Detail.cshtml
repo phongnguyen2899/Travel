@@ -1,0 +1,180 @@
+﻿@model EF.Entiti.Article
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shered/_Layout.cshtml";
+}
+<link href="~/AccessClient/css/style.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="~/AccessClient/css/detail-room.css">
+<link rel="stylesheet" type="text/css" href="~/AccessClient/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="~/AccessClient/css/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="~/AccessClient/css/css/all.css">
+<link rel="stylesheet" type="text/css" href="~/AccessClient/slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="~/AccessClient/slick/slick-theme.css" />
+<link rel="stylesheet" type="text/css" href="~/AccessClient/css/bootstrap-datepicker3.css">
+<link rel="stylesheet" type="text/css" href="~/AccessClient/css/flaticon.css">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+<!-- page title -->
+<div class="page-title container-fluid">
+    <div class="container" style="position: relative;">
+        <p class="title">The Best Beach Honeymoon</p>
+        <p class="page-tree">
+            <span class="home"><a href="index.html">Home</a></span>
+            <span><i class="fa fa-angle-right"></i></span>
+            <span><a href="#">Single</a></span>
+            <span><i class="fa fa-angle-right"></i></span>
+            <span><a href="#">The Best Beach Honeymoon</a></span>
+        </p>
+    </div>
+</div>
+<!-- end page title -->
+<!-- detail room -->
+<div class="detail-room container-fluid">
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="left col-xl-8 col-lg-8 col-md-12">
+                    <div class="row" style="width: 100%;">
+                        <div class="room-img left-item">
+                            <img src="~/Accsess/Image/Article/@Model.Image" class="bg-replace">
+                            <div class="zoom-layer">
+                                <div class="zoom-btn">
+                                    <i class="far fa-eye"></i>
+                                </div>
+                            </div>
+                            <div class="img-popup" id="img-popup">
+                                <div class="img-box" id="img-box">
+                                    <img src="">
+                                </div>
+                                <div class="close-popup">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="criteria left-item">
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="description">
+                                        @Model.Decriptions
+                                    </p>
+                                </div>
+                                <div class="col-12">
+                                    <p class="article-tag">Tags: <span>Best deal</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment left-item">
+                            <p class="title">Add Comments</p>
+                            <p class="note">Your email address will not be published. Required fields are marked *</p>
+                            <textarea placeholder="Comment"></textarea>
+                            <input type="name" name="" placeholder="Name *" class="name">
+                            <input type="email" name="" placeholder="Email *" class="email">
+                            <input type="text" name="" placeholder="Website" class="web">
+                            <button>post comment</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="right col-xl-4 col-lg-4 col-md-12">
+                    <div class="row" style="width: 100%;">
+                        <div class="room-category right-item col-12">
+                            <p class="title">Categories</p>
+                            @{ Html.RenderAction("Getcategory", "Blog"); }
+                        </div>
+                        <div class="slice"></div>
+                        <div class="post right-item col-12">
+                            <p class="title">Recent Posts</p>
+                            @{ Html.RenderAction("GetRecentArticle", "Blog"); }
+                        </div>
+                        <div class="slice"></div>
+                        <div class="calendar right-item col-12">
+                            <p class="title">Calendar</p>
+                            <div id="calendar-init"></div>
+                        </div>
+                        <div class="slice"></div>
+                        <div class="tags right-item col-12">
+                            <p class="title">Tags</p>
+                            <p class="item">Asia</p>
+                            <p class="item">Best deals</p>
+                            <p class="item">Cheap Hotels</p>
+                            <p class="item">Discount</p>
+                            <p class="item">Honeymoon</p>
+                            <p class="item">Island</p>
+                        </div>
+                        <div class="slice"></div>
+                        <div class="instagram right-item col-12">
+                            <p class="title">Instagram</p>
+                            <p class="description">Instagram dis not return a 2020.</p>
+                        </div>
+                        <div class="slice"></div>
+                        <div class="search right-item col-12">
+                            <p class="title">Search</p>
+                            <input type="search" name="" placeholder="Enter keyword" id="right-search">
+                            <label for="right-search"><i class="fa fa-search"></i></label>
+                        </div>
+                        <div class="slice"></div>
+                        <div class="room-category right-item col-12 archives">
+                            <p class="title">Archives</p>
+                            <p class="item"><i class="fa fa-angle-right"></i><a href="#"> February 2016 </a><span>(39)</span></p>
+                            <p class="item"><i class="fa fa-angle-right"></i><a href="#"> March 2017 </a><span>(12)</span></p>
+                            <p class="item"><i class="fa fa-angle-right"></i><a href="#"> April 2018 </a><span>(47)</span></p>
+                            <p class="item"><i class="fa fa-angle-right"></i><a href="#"> May 2019 </a><span>(24)</span></p>
+                            <p class="item"><i class="fa fa-angle-right"></i><a href="#"> June 2020 </a><span>(51)</span></p>
+                        </div>
+                        <div class="slice"></div>
+                        <div class="post right-item col-12 rating">
+                            <p class="title">Rating</p>
+                            <div class="item">
+                                <div class="row" style="margin-left: 0; margin-right: 0;	">
+                                    <div class="col-4 image" style="background-image: url(/AccessClient/img/dining1.jpg);"></div>
+                                    <div class="col-8">
+                                        <p class="article"><a href="#">Best Beef steak and Grilled vegetables</a></p>
+                                        <p class="rate">
+                                            <span class="star-rate">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span class="number-rate">
+                                                5.0
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="row" style="margin-left: 0; margin-right: 0;	">
+                                    <div class="col-4 image" style="background-image: url(/AccessClient/img/dining2.jpg);"></div>
+                                    <div class="col-8">
+                                        <p class="article"><a href="#">Best Beef steak and Grilled vegetables</a></p>
+                                        <p class="rate">
+                                            <span class="star-rate">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span class="number-rate">
+                                                4.8
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/AccessClient/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="~/AccessClient/js/shared.js"></script>
+<script type="text/javascript" src="~/AccessClient/js/detail-room.js"></script>
+<script type="text/javascript" src="~/AccessClient/slick/slick.min.js"></script>
+<script type="text/javascript" src="~/AccessClient/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="~/AccessClient/js/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="~/AccessClient/js/jquery.counterup.js"></script>

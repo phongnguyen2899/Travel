@@ -1,0 +1,19 @@
+﻿@model IEnumerable<EF.Entiti.Menu>
+
+@foreach(var item in Model.Where(x=>x.ParenID==null))
+        {
+            var child = Model.Where(x => x.ParenID == item.ID);
+            
+            <li class="current-page">
+                <a href="@item.Location" class="title">@item.NameMenu</a>
+                @if (child.Count() > 0)
+                {
+                <div class="drop-menu">
+                    @foreach (var chileitem in child)
+                    {
+                        <div class="col-12 item"><a href="@chileitem.Location">@chileitem.NameMenu</a></div>
+                    }
+                </div>
+                }
+            </li>
+}

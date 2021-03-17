@@ -1,0 +1,15 @@
+﻿@model IEnumerable<EF.Entiti.Article>
+
+@foreach (var item in Model)
+{
+<div class="item">
+    <div class="row" style="margin-left: 0; margin-right: 0;	">
+        <div class="col-4 image" style="background-image: url(/Accsess/Image/Article/@item.Image);"></div>
+        <div class="col-8">
+            <p class="article"><a href="#">@item.NameArticle</a></p>
+            <p class="time"><span class="date">@item.CreateDate</span><span class="mes"><i class="fas fa-comment"></i> 0</span></p>
+        </div>
+    </div>
+</div>
+}
+

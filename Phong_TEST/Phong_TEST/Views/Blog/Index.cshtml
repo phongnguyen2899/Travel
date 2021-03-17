@@ -1,0 +1,220 @@
+﻿@model IEnumerable<EF.Entiti.Article>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shered/_Layout.cshtml";
+}
+
+<link href="~/AccessClient/css/style.css" rel="stylesheet" />
+<link href="~/AccessClient/css/check-article.css" rel="stylesheet" />
+<link href="~/AccessClient/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/AccessClient/css/jquery-ui.css" rel="stylesheet" />
+<link href="~/AccessClient/css/css/all.css" rel="stylesheet" />
+<link href="~/AccessClient/slick/slick.css" rel="stylesheet" />
+<link href="~/AccessClient/slick/slick-theme.css" rel="stylesheet" />
+<link href="~/AccessClient/css/bootstrap-datepicker3.css" rel="stylesheet" />
+<link href="~/AccessClient/css/flaticon.css" rel="stylesheet" />
+<link rel="icon" type="image/png" href="~/AccessClient/img/favicon.png">
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+
+<!-- page title -->
+<div class="page-title container-fluid">
+    <div class="container" style="position: relative;">
+        <p class="title">Portfolio 3 columns</p>
+        <p class="page-tree">
+            <span class="home"><a href="index.html">Home</a></span>
+            <span><i class="fa fa-angle-right"></i></span>
+            <span>Portfolio 3 columns</span>
+        </p>
+    </div>
+</div>
+<!-- end page title -->
+<!-- portfolio -->
+<div class="portfolio container-fluid">
+    <div class="row">
+        <div class="container">
+            <div class="row">
+
+                @foreach (var item in Model)
+                {
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 item">
+                        <div class="image" style="background-image: url(/Accsess/Image/Article/@item.Image);"></div>
+                        <div class="info-layer">
+                            <div class="detail">
+                                <p class="title"><a href="@Url.Action("Detail","Blog",new {id=item.ID })">@item.NameArticle</a></p>
+                                <p class="time">@item.CreateDate <span><i class="fas fa-comment"></i> 32</span></p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <!--
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 item">
+        <div class="image" style="background-image: url(/AccessClient/img/scene6.jpg);"></div>
+        <div class="info-layer">
+            <div class="detail">
+                <p class="title"><a href="detail-article.html">Insider guide to 48 hours in London</a></p>
+                <p class="time">Dec 28,2020 <span><i class="fas fa-comment"></i> 32</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 item">
+        <div class="image" style="background-image: url(/AccessClient/img/scene5.jpg);"></div>
+        <div class="info-layer">
+            <div class="detail">
+                <p class="title"><a href="detail-article.html">Insider guide to 48 hours in London</a></p>
+                <p class="time">Dec 28,2020 <span><i class="fas fa-comment"></i> 32</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 item">
+        <div class="image" style="background-image: url(/AccessClient/img/scene4.jpg);"></div>
+        <div class="info-layer">
+            <div class="detail">
+                <p class="title"><a href="detail-article.html">Insider guide to 48 hours in London</a></p>
+                <p class="time">Dec 28,2020 <span><i class="fas fa-comment"></i> 32</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 item">
+        <div class="image" style="background-image: url(/AccessClient/img/scene3.jpg);"></div>
+        <div class="info-layer">
+            <div class="detail">
+                <p class="title"><a href="detail-article.html">Insider guide to 48 hours in London</a></p>
+                <p class="time">Dec 28,2020 <span><i class="fas fa-comment"></i> 32</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 item">
+        <div class="image" style="background-image: url(/AccessClient/img/scene2.jpg);"></div>
+        <div class="info-layer">
+            <div class="detail">
+                <p class="title"><a href="detail-article.html">Insider guide to 48 hours in London</a></p>
+                <p class="time">Dec 28,2020 <span><i class="fas fa-comment"></i> 32</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 item">
+        <div class="image" style="background-image: url(/AccessClient/img/scene1.jpg);"></div>
+        <div class="info-layer">
+            <div class="detail">
+                <p class="title"><a href="detail-article.html">Insider guide to 48 hours in London</a></p>
+                <p class="time">Dec 28,2020 <span><i class="fas fa-comment"></i> 32</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 item">
+        <div class="image" style="background-image: url(/AccessClient/img/scene7.jpg);"></div>
+        <div class="info-layer">
+            <div class="detail">
+                <p class="title"><a href="detail-article.html">Insider guide to 48 hours in London</a></p>
+                <p class="time">Dec 28,2020 <span><i class="fas fa-comment"></i> 32</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 item">
+        <div class="image" style="background-image: url(/AccessClient/img/scene8.jpg);"></div>
+        <div class="info-layer">
+            <div class="detail">
+                <p class="title"><a href="detail-article.html">Insider guide to 48 hours in London</a></p>
+                <p class="time">Dec 28,2020 <span><i class="fas fa-comment"></i> 32</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 item">
+        <div class="image" style="background-image: url(/AccessClient/img/scene9.jpg);"></div>
+        <div class="info-layer">
+            <div class="detail">
+                <p class="title"><a href="detail-article.html">Insider guide to 48 hours in London</a></p>
+                <p class="time">Dec 28,2020 <span><i class="fas fa-comment"></i> 32</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 item">
+        <div class="image" style="background-image: url(/AccessClient/img/scene10.jpg);"></div>
+        <div class="info-layer">
+            <div class="detail">
+                <p class="title"><a href="detail-article.html">Insider guide to 48 hours in London</a></p>
+                <p class="time">Dec 28,2020 <span><i class="fas fa-comment"></i> 32</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 item">
+        <div class="image" style="background-image: url(/AccessClient/img/scene11.jpg);"></div>
+        <div class="info-layer">
+            <div class="detail">
+                <p class="title"><a href="detail-article.html">Insider guide to 48 hours in London</a></p>
+                <p class="time">Dec 28,2020 <span><i class="fas fa-comment"></i> 32</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 item">
+        <div class="image" style="background-image: url(/AccessClient/img/scene12.jpg);"></div>
+        <div class="info-layer">
+            <div class="detail">
+                <p class="title"><a href="detail-article.html">Insider guide to 48 hours in London</a></p>
+                <p class="time">Dec 28,2020 <span><i class="fas fa-comment"></i> 32</span></p>
+            </div>
+        </div>
+    </div>
+        -->
+            </div>
+            <div class="row">
+                <div class="col-12 pagination">
+                    <!--
+    <div class="page-block active">1</div>
+    <div class="page-block">2</div>
+    <div class="page-block">3</div>
+    <div class="page-block"><i class="fa fa-angle-right"></i></div>
+    <div class="page-block"><i class="fa fa-angle-double-right"></i></div>
+    -->
+
+                    @if (ViewBag.page > 0)
+                    {
+
+                        <a href="@Url.Action("Index", new { page = ViewBag.page - 1 })"
+                           class="btn btn-default">
+                            <div class="page-block"><i class="fa fa-angle-left"></i></div>
+                        </a>
+
+
+                    }
+                    @if (ViewBag.page >=1 && ViewBag.page < ViewBag.Maxpage)
+                    {
+                        var prev = ViewBag.page-1;
+                        <a href="@Url.Action("Index", new { page =prev})">
+                            <div class="page-block">@prev</div>
+                        </a>
+                        var position = ViewBag.page;
+                        <a href="@Url.Action("Index", new { page = position })">
+                            <div class="page-block">@position</div>
+                        </a>
+                        var next = ViewBag.page + 1;
+                        <a href="@Url.Action("Index", new { page =next })">
+                            <div class="page-block">@next</div>
+                        </a>
+                    }
+                    @if (ViewBag.page < ViewBag.Maxpage)
+                    {
+                        <a href="@Url.Action("Index", new { page = ViewBag.page + 1 })"
+                           class="">
+                            <div class="page-block"><i class="fa fa-angle-right"></i></div>
+                        </a>
+                        <a href="@Url.Action("Index",new { page=ViewBag.Maxpage})">
+                            <div class="page-block"><i class="fa fa-angle-double-right"></i></div>
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="~/AccessClient/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="~/AccessClient/js/shared.js"></script>
+<script type="text/javascript" src="~/AccessClient/js/check-article.js"></script>
+<script type="text/javascript" src="~/AccessClient/slick/slick.min.js"></script>
+<script type="text/javascript" src="~/AccessClient/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="~/AccessClient/js/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="~/AccessClient/js/jquery.counterup.js"></script>
+

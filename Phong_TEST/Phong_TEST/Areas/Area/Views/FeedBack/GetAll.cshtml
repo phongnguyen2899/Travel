@@ -1,0 +1,91 @@
+﻿@model PagedList.IPagedList<EF.Entiti.Contact>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Areas/Area/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetAll</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Phone
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            Content
+        </th>
+        <th>
+            CreateDate
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Request)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                <a href="#" id="@item.ID" onclick="deleteconfirm(@item.ID)">Delete</a>
+                
+            </td>
+        </tr>
+    }
+
+</table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Getall", new { page }))
+
+<script>
+    function deleteconfirm(id) {
+        var url = "/Feedback/Delete"
+        fetch(url, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify({ id })
+        }).then(response => response.json())
+            .then(function (data) {
+                var item = document.getElementById(id);
+                var action = item.parentElement;
+                var tr = action.parentElement;
+                tr.style.display = 'none';
+            })
+    }
+    function deleteRow(btn) {
+        var row = btn.parentNode
+        row.parentNode.removeChild(row);
+    }
+</script>

@@ -1,0 +1,68 @@
+﻿@model PagedList.IPagedList<EF.Entiti.Article>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Getall";
+    Layout = "~/Areas/Area/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Getall</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Category
+        </th>
+        <th>
+            Name Article
+        </th>
+        <th>
+            Image
+        </th>
+
+        <th>
+            Decriptions
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Menu.NameMenu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameArticle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @{ 
+                    var chuoi = "";
+                    if (item.Decriptions.Length > 50)
+                    {
+                        chuoi = item.Decriptions.Substring(0, 50);
+                    }
+                    else
+                    {
+                        chuoi = item.Decriptions;
+                    }
+                }
+                <p>@chuoi</p>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Getall",new { page }))

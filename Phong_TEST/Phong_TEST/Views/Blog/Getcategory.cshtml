@@ -1,0 +1,6 @@
+﻿@model IEnumerable<EF.Entiti.Menu>
+
+@foreach (var item in Model)
+{
+    <p class="item"><i class="fa fa-angle-right"></i><a href="@Url.Action("Category","Blog",new { id=item.ID})">@item.NameMenu</a></p>
+}
